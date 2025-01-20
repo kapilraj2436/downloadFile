@@ -1,7 +1,7 @@
 import requests
 import re
 
-def getFilename_fromCd(cd):
+def getFilename(cd):
     """
     Get filename from content-disposition
     """
@@ -15,5 +15,5 @@ def getFilename_fromCd(cd):
 
 url = 'https://example-files.online-convert.com/document/txt/example.txt'
 r = requests.get(url, allow_redirects=True)
-filename = getFilename_fromCd(r.headers.get('content-disposition'))
+filename = getFilename(r.headers.get('content-disposition'))
 open("downloaded.txt", 'wb').write(r.content)
